@@ -67,12 +67,12 @@ dev.off()
 
 ## Batch Correction 
 
-
 #source("http://bioconductor.org/biocLite.R")
 ##biocLite("sva")
 library(sva)
 
 ## there is a confound of Dx and batch - just have to let it be and hope for the best
+## can't model Dx effects bc of the confound, so just give ComBat the datExpr and batch vector
 
 batch = as.factor(datMeta$Batch)
 datExpr.combat = ComBat(dat = datExpr,batch = batch)
